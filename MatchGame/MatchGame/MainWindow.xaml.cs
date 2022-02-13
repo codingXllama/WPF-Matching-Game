@@ -18,12 +18,36 @@ namespace MatchGame
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+    // Used for Timer
+    using System.Windows.Threading;
     public partial class MainWindow : Window
     {
+
+        //Creating a new Timer
+        DispatcherTimer timer = new DispatcherTimer();
+        int tenthsOfSecondsElapsed;
+        int matchesFound;
         public MainWindow()
         {
             InitializeComponent();
+
+
+            timer.Interval = TimeSpan.FromSeconds(0.1);
+            timer.Tick += Timer_Tick;
             SetUpGame();
+        }
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            tenthsOfSecondsElapsed++;
+            timeTextBlock.Text = (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
+            if (matchesFound == 8)
+            {
+                timer.Stop();
+                timeTextBlock.Text = "Finished in " + timeTextBlock.Text + " - Play again? ";
+            }
         }
 
         private void SetUpGame()
@@ -43,12 +67,21 @@ namespace MatchGame
             Random random = new Random();
             foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
-                int index = random.Next(animalEmoji.Count);
-                Console.WriteLine(index);
-                string nextEmoji = animalEmoji[index];
-                textBlock.Text = nextEmoji;
-                animalEmoji.RemoveAt(index);
+
+                if (textBlock.Name != "timeTextBlock")
+                {
+                    int index = random.Next(animalEmoji.Count);
+                    Console.WriteLine(index);
+                    string nextEmoji = animalEmoji[index];
+                    textBlock.Text = nextEmoji;
+                    animalEmoji.RemoveAt(index);
+                }
+
             }
+            // To start the timer 
+            timer.Start();
+            tenthsOfSecondsElapsed = 0;
+            matchesFound = 0;
 
 
         }
@@ -73,9 +106,11 @@ namespace MatchGame
                 findingMatch = true;
 
             }
+
             // This indicates that we have found a match and we can proceed to find more matching pairs
             else if (textBlock.Text == lastTextBlockClicked.Text)
             {
+                matchesFound++;
                 textBlock.Visibility = Visibility.Hidden;
                 findingMatch = false;
             }
@@ -85,11 +120,19 @@ namespace MatchGame
                 // This indicates that if the last selected item does not match the first, we make that 2nd item visisble and continue to search for a match.
                 lastTextBlockClicked.Visibility = Visibility.Visible;
                 findingMatch = false;
-
             }
 
 
 
+        }
+
+        private void TimeTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //resetting the game if all 8 matched pairs have been found
+            if (matchesFound == 8)
+            {
+                SetUpGame();
+            }
         }
     }
 }
