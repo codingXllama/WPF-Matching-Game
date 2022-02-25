@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N8Dyu6mV+V3p5b9vw7jTtH4eyudkvH9tS+/6/PGdu8kV61Qp6kmItywau6r21RGBGJDC2v1VqdObQpzsnOe8SQ==",
+  "dgSpecHash": "BBjwAjiXwCZAAoucWNF3Sgi8ttD1otfRE2oY8FsovASBeBTD9gr5asGYKA/J/H2U5A+UzS5i9fDPdw8F57AqaQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\osama\\source\\repos\\WPF-Matching-Game\\MatchGame\\MatchGame\\MatchGame.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\osama\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.14\\microsoft.netcore.app.runtime.win-x64.5.0.14.nupkg.sha512",
-    "C:\\Users\\osama\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.14\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.14.nupkg.sha512",
-    "C:\\Users\\osama\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.14\\microsoft.aspnetcore.app.runtime.win-x64.5.0.14.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

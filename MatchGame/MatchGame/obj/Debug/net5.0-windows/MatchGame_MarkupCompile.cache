@@ -5,16 +5,16 @@ winexe
 C#
 .cs
 C:\Users\osama\source\repos\WPF-Matching-Game\MatchGame\MatchGame\obj\Debug\net5.0-windows\
-MatchGame
+MatchGame_zx01lkup_wpftmp
 none
 false
-TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+TRACE;RELEASE;NET;NET5_0;NETCOREAPP
 C:\Users\osama\source\repos\WPF-Matching-Game\MatchGame\MatchGame\App.xaml
 11407045341
 
-3-1233169557
-193-1891726104
+5-61688176
+386511515088
 MainWindow.xaml;
 
-False
+True
 
